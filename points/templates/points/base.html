@@ -1,0 +1,61 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'points/css/bootstrap.min.css' %}">
+        
+        <script src="{% static 'points/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="https://unpkg.com/popper.js"></script>
+        <title>
+            {% block title %}Base{% endblock title %} | TrashCash
+        </title> 
+        
+    </head>
+    <body>
+        <style>
+            .shadow{
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+        </style>
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="" class="navbar-brand">TrashCash</a>
+                
+            <!-- Links -->
+            <div class="container">
+                <div class="navbar-collapse collapse" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                            {% if not request.user.is_authenticated %}
+                            
+                        <li>
+                            <a href="{% url 'signup' %}" class="nav-link">Signup</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'login' %}" class="nav-link">Login in</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'logout' %}" class="nav-link">Sign out</a>
+                        </li>
+                        
+                        {% endif %}
+                    </ul>
+                </div>    
+            </div>
+            
+        </nav>
+        <br><br>
+        <div class="container-fluid">
+                
+            {% block content %}
+            
+            {% endblock content %}
+    
+        </div>
+        <script src="{% static 'points/js/bootstrap.min.js' %}"></script>
+    </body>
+</html>

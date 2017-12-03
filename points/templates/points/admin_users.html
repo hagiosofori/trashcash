@@ -1,0 +1,25 @@
+{% extends "points/admin_base.html" %}
+
+{% block title %}
+Users
+{% endblock title %}
+
+
+{% block content %}
+<h3>Users Summary</h3>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>User</th>
+        <th>Current Balance</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user }}</td>
+        <td>
+            GHS{{ user.client.wallet }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

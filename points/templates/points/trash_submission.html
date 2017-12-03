@@ -1,0 +1,28 @@
+{% extends "points/admin_base.html" %}
+
+{% block title %}
+New Trash Submission
+{% endblock title %}
+
+{% block content %}
+{% load bootstrap4 %}
+<div class="col-md-6 mx-auto">
+    <div class="card shadow">
+        <div class="card-block">
+            <br>
+            <div class="card-title">
+                <center><h3>New Trash Submission</h3></center>
+            </div>
+            <div class="card-body">
+                <form action="" method="post">
+                    {% csrf_token %}
+        
+                    {% bootstrap_form form %}
+                    <button type="submit" class="btn btn-block btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock content %}

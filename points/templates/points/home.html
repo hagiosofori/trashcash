@@ -1,0 +1,78 @@
+{% extends "points/base.html" %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class=" col-8 mr-auto">
+        <div class="card ">
+            <div class="container">
+                <div class="card-title">
+                    <br>
+                    <h3>History</h3>
+                </div>
+                {% if not request.user.is_authenticated %}
+                <h4>No user logged in..</h4>
+                {% else %}
+                <div class="card-body">
+                    <span>
+                        Current balance: <b>GHS{{ request.user.client.wallet }}</b>
+                    </span>
+                    <br><br>
+                    <h4>Submissions History</h4>
+                    <br>
+                    
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>Date</th>
+                            <th>Weight</th>
+                            <th>Amount earned</th>
+                        </tr>
+                        {% for sub in submissions|dictsortreversed:"created_on" %}
+                        <tr>
+                            <td>{{ sub.created_on }}</td>
+                            <td>{{ sub.weight }}</td>
+                            <td>GHS{{ sub.earning }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    {% comment %}
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="container">
+                                <span>Date:<b>{{ sub.created_on }}</b></span><br>
+                                <span>Weight: <b>{{ sub.weight }}</b></span><br>
+                                <span>Amount earned: <b>{{ sub.earning }}</b></span>
+                            </div>
+                        </div>
+                    </div>
+                        {% endcomment %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    {% if request.user.is_authenticated %}
+    <div class="col-4">
+    <div class="card">
+        <div class="container">
+            <div class="card-title">
+                <h3>Profile</h3>
+            </div>
+            <div class="card-body">
+                <span><b>Username: </b>{{ request.user.username }}</span>
+                <br><hr>
+                <span><b>Phone number: </b>{{ request.user.client.phone_number }}</span>
+                <br><hr>
+                <span><b>Email: </b>{{ request.user.email }}</span>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endif %}        
+</div>
+
+{% endblock content %}

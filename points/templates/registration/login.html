@@ -1,0 +1,26 @@
+{% extends "points/base.html" %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block content %}
+{% load bootstrap4 %}
+<div class="col-md-6 mx-auto">
+    <div class="card shadow container">
+        <center><h3>Login</h3></center>
+        <div class="pull-right">
+            
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <br>
+            <button type="submit" class="btn btn-success btn-block">Login</button>
+            <br>
+            <br>
+            <a href="{% url 'signup' %}" class="float-right">No account yet? Click here to sign up</a>
+        </form>
+    </div>
+</div>
+{% endblock content %}

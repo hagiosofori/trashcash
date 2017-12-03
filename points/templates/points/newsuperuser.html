@@ -1,0 +1,28 @@
+{% extends "points/admin_base.html" %}
+
+{% block title %}
+New Admin/Staff
+{% endblock title %}
+
+{% block content %}
+{% load bootstrap4 %}
+<div class="col-md-6 mx-auto">
+    <div class="card shadow">
+        <div class="container">
+            <div class="card-title">
+                <br>
+                <h3>Create new Admin/Staff</h3>
+            </div>
+            <div class="card-body">
+                <form action="" method="POST">
+                    {% csrf_token %}
+
+                    {% bootstrap_form form %}
+                    <br>
+                    <button type="submit" class="btn btn-block btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
