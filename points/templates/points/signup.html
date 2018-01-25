@@ -1,5 +1,9 @@
 {% extends "points/base.html" %}
 
+{% block title %}
+Sign up
+{% endblock title %}
+
 {% block content %}
 {% load bootstrap4 %}
 
@@ -15,7 +19,7 @@
 
                 {% bootstrap_form form %}
 
-                <input type="submit" class="btn btn-success btn-block">
+                <input type="submit" class="btn btn-success btn-block" value="Submit">
                 <br>
                 <a href="{% url 'login' %}" class="float-right">Already have an account? Click here to login</a>
             </form>
