@@ -6,7 +6,7 @@ Home
 
 {% block content %}
 <div class="row">
-    <div class=" col-8 mr-auto">
+    <div class=" col-lg-8 mr-auto">
         <div class="card ">
             <div class="container">
                 <div class="card-title">
@@ -39,7 +39,7 @@ Home
                         {% endfor %}
                     </table>
                     {% comment %}
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="container">
                                 <span>Date:<b>{{ sub.created_on }}</b></span><br>
@@ -54,9 +54,9 @@ Home
             </div>
         </div>
     </div>
-    
+    <br>
     {% if request.user.is_authenticated %}
-    <div class="col-4">
+    <div class="col-lg-4">
     <div class="card">
         <div class="container">
             <div class="card-title">

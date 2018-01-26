@@ -20,6 +20,8 @@ from django.contrib.auth import views as auth_views
 from points import views as core_views
 
 urlpatterns = [
+    url(r'^$', core_views.home, name="testhome"),
+
     url(r'^login/$', auth_views.login, name="login"),
 
     url(r'^logout/$', auth_views.logout, {'next_page': '/home'}, name="logout"),
